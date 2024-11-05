@@ -33,4 +33,5 @@ jobs:
 
       - name: Execute Jupyter Notebook with Papermill
         run: |
-          papermill IDS706_PySpark_Data_Processing_Assignment.ipynb notebooks/output_notebook.ipynb
+          papermill IDS706_PySpark_Data_Processing_Assignment.ipynb notebooks/output_notebook.ipynb -k python3
+
