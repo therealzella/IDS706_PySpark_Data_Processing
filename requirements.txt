@@ -7,3 +7,8 @@ pylint == 2.15.3       ## for linting Python code (used in the lint target)
 
 # web
 fastapi == 0.85.0      ## web framework (if relevant to project)
+pyspark==3.3.1          # Ensure compatibility with your PySpark version in Databricks
+jupyter                 # Alternatively, you can use nbconvert and nbclient if you don't need full Jupyter functionality
+nbconvert==6.5.4        # Required if you prefer to specify notebook execution dependencies explicitly
+nbclient==0.5.13
+flake8==5.0.4           # For linting your Python code
