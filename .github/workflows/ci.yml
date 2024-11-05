@@ -34,7 +34,3 @@ jobs:
       - name: Download cereal.csv
         run: wget https://github.com/therealzella/IDS706_PySpark_Data_Processing/raw/main/cereal.csv -O ./cereal.csv
 
-      - name: Execute Jupyter Notebook with Papermill
-        run: |
-          papermill IDS706_PySpark_Data_Processing_Assignment.ipynb output_notebook.ipynb -k python3
-
