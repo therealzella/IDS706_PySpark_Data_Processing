@@ -7,33 +7,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pyspark nbconvert nbclient  # Additional dependencies for PySpark and notebook execution
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyspark papermill
 
-    - name: Lint with flake8
-      run: |
-        pip install flake8
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        pytest
+      - name: Test with pytest
+        run: |
+          pip install pytest
+          pytest
 
-    - name: Execute Jupyter Notebook with PySpark
-      run: |
-        jupyter nbconvert --to notebook --execute notebooks/IDS706_PySpark_Data_Processing.ipynb --inplace
-
+      - name: Execute Jupyter Notebook with Papermill
+        run: |
+          papermill notebooks/IDS706_PySpark_Data_Processing.ipynb notebooks/output_notebook.ipynb
