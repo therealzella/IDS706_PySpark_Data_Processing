@@ -12,3 +12,4 @@ jupyter                 # Alternatively, you can use nbconvert and nbclient if y
 nbconvert==6.5.4        # Required if you prefer to specify notebook execution dependencies explicitly
 nbclient==0.5.13
 flake8==5.0.4           # For linting your Python code
+lxml[html_clean]
