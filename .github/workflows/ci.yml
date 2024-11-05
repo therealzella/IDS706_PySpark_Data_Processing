@@ -35,4 +35,5 @@ jobs:
 
     - name: Execute Jupyter Notebook with PySpark
       run: |
-        jupyter nbconvert --to notebook --execute notebooks/IDS706_PySpark_Data_Processing.ipynb --output notebooks/output_notebook.ipynb
+        jupyter nbconvert --to notebook --execute notebooks/IDS706_PySpark_Data_Processing.ipynb --inplace
+
