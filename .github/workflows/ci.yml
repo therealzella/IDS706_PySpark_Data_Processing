@@ -31,9 +31,8 @@ jobs:
           pip install pytest
           pytest
 
-      - name: Download Dataset
-        run: |
-          wget https://github.com/therealzella/IDS706_PySpark_Data_Processing/raw/main/cereal.csv -O cereal.csv
+      - name: Download cereal.csv
+        run: wget https://github.com/therealzella/IDS706_PySpark_Data_Processing/raw/main/cereal.csv -O ./cereal.csv
 
       - name: Execute Jupyter Notebook with Papermill
         run: |
